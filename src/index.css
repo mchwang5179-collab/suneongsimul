@@ -1,0 +1,152 @@
+@import url('https://fonts.googleapis.com/css2?family=Gowun+Batang:wght@400;700&family=IBM+Plex+Sans+KR:wght@400;500;600;700&display=swap');
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --font-heading: 'Gowun Batang', serif;
+  --font-body: 'IBM Plex Sans KR', sans-serif;
+  --font-label: 'IBM Plex Sans KR', sans-serif;
+
+  --background-50: 0.985 0.006 85;
+  --background-100: 0.962 0.010 85;
+  --background-200: 0.928 0.016 82;
+  --background-300: 0.882 0.022 80;
+  --background-400: 0.818 0.026 78;
+  --background-500: 0.742 0.028 76;
+  --background-600: 0.640 0.026 74;
+  --background-700: 0.532 0.022 72;
+  --background-800: 0.420 0.018 70;
+  --background-900: 0.312 0.014 68;
+  --background-950: 0.220 0.010 65;
+
+  --primary-50: 0.975 0.030 85;
+  --primary-100: 0.945 0.062 85;
+  --primary-200: 0.895 0.100 82;
+  --primary-300: 0.845 0.135 80;
+  --primary-400: 0.790 0.155 75;
+  --primary-500: 0.735 0.165 70;
+  --primary-600: 0.655 0.155 65;
+  --primary-700: 0.560 0.135 60;
+  --primary-800: 0.460 0.110 58;
+  --primary-900: 0.370 0.088 56;
+  --primary-950: 0.280 0.070 55;
+
+  --accent-50: 0.970 0.020 150;
+  --accent-100: 0.935 0.040 150;
+  --accent-200: 0.885 0.060 150;
+  --accent-300: 0.825 0.075 150;
+  --accent-400: 0.740 0.085 152;
+  --accent-500: 0.640 0.090 155;
+  --accent-600: 0.555 0.085 155;
+  --accent-700: 0.470 0.075 155;
+  --accent-800: 0.385 0.062 155;
+  --accent-900: 0.300 0.050 155;
+  --accent-950: 0.220 0.038 155;
+
+  --secondary-50: 0.975 0.008 75;
+  --secondary-100: 0.945 0.012 75;
+  --secondary-200: 0.900 0.016 74;
+  --secondary-300: 0.845 0.020 73;
+  --secondary-400: 0.760 0.022 72;
+  --secondary-500: 0.660 0.022 70;
+  --secondary-600: 0.560 0.020 68;
+  --secondary-700: 0.465 0.018 66;
+  --secondary-800: 0.375 0.015 64;
+  --secondary-900: 0.290 0.012 62;
+  --secondary-950: 0.205 0.009 60;
+
+  --foreground-50: 0.970 0.005 70;
+  --foreground-100: 0.935 0.008 70;
+  --foreground-200: 0.875 0.012 70;
+  --foreground-300: 0.790 0.016 68;
+  --foreground-400: 0.680 0.018 66;
+  --foreground-500: 0.560 0.018 64;
+  --foreground-600: 0.460 0.016 62;
+  --foreground-700: 0.370 0.014 60;
+  --foreground-800: 0.290 0.012 58;
+  --foreground-900: 0.220 0.010 56;
+  --foreground-950: 0.150 0.008 55;
+}
+
+.dark {
+  --background-50: 0.210 0.010 65;
+  --background-100: 0.250 0.012 65;
+  --background-200: 0.300 0.014 66;
+  --background-300: 0.360 0.016 66;
+  --background-400: 0.440 0.018 67;
+  --background-500: 0.540 0.020 68;
+  --background-600: 0.640 0.022 70;
+  --background-700: 0.730 0.022 72;
+  --background-800: 0.820 0.020 74;
+  --background-900: 0.900 0.014 78;
+  --background-950: 0.960 0.008 82;
+
+  --foreground-50: 0.180 0.008 58;
+  --foreground-100: 0.240 0.010 60;
+  --foreground-200: 0.320 0.012 62;
+  --foreground-300: 0.420 0.014 63;
+  --foreground-400: 0.540 0.016 64;
+  --foreground-500: 0.660 0.018 66;
+  --foreground-600: 0.760 0.016 67;
+  --foreground-700: 0.840 0.014 68;
+  --foreground-800: 0.900 0.010 70;
+  --foreground-900: 0.945 0.008 70;
+  --foreground-950: 0.975 0.005 72;
+}
+
+html,
+body,
+#root {
+  min-height: 100%;
+}
+
+body {
+  font-family: var(--font-body);
+  background-color: oklch(var(--background-100));
+  color: oklch(var(--foreground-950));
+  -webkit-font-smoothing: antialiased;
+}
+
+@keyframes csat-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-fade-in {
+  animation: csat-fade-in 0.5s ease-out both;
+}
+
+@keyframes csat-pulse-ring {
+  0% {
+    box-shadow: 0 0 0 0 oklch(var(--accent-500) / 0.45);
+  }
+  100% {
+    box-shadow: 0 0 0 12px oklch(var(--accent-500) / 0);
+  }
+}
+
+.animate-pulse-ring {
+  animation: csat-pulse-ring 1.6s ease-out infinite;
+}
+
+.csat-scroll {
+  scrollbar-width: thin;
+  scrollbar-color: oklch(var(--background-400)) transparent;
+}
+
+.csat-scroll::-webkit-scrollbar {
+  width: 6px;
+}
+
+.csat-scroll::-webkit-scrollbar-thumb {
+  background-color: oklch(var(--background-400));
+  border-radius: 9999px;
+}
+
